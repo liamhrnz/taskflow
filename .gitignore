@@ -1,0 +1,99 @@
+# ===== NODE.JS / NPM =====
+node_modules/
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+yarn-debug.log*
+.npm
+.eslintcache
+
+# ===== ENVIRONMENT & CONFIGURATION =====
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# ===== OPERATING SYSTEM =====
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+
+# ===== EDITOR & IDE =====
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+*.iml
+*.swp
+*.swo
+*~
+.vim/
+
+# ===== JSON SERVER =====
+# Snapshots created by JSON Server
+db-*.json
+*.backup
+
+# ===== BUILD & DIST =====
+dist/
+build/
+.next/
+out/
+
+# ===== LOGS =====
+logs/
+*.log
+log.txt
+
+# ===== TESTING =====
+coverage/
+.nyc_output/
+.mocha_output/
+
+# ===== TEMPORARY FILES =====
+*.tmp
+*.temp
+.cache/
+temp/
+
+# ===== DEVELOPMENT SERVER =====
+.parcel-cache/
+.turbo/
+
+# ===== BUNDLE SIZE ANALYSIS =====
+bundle-report.html
+bundle-stats.json
+
+# ===== OS-SPECIFIC =====
+# Visual Studio
+.vscode/settings.json
+.vscode/extensions.json
+
+# IntelliJ
+*.iws
+
+# Gradle
+.gradle/
+build/
+
+# Misc
+*.swp
+*.swo
+*~
+.DS_Store
