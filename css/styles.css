@@ -1,13 +1,13 @@
 /* ===== DESIGN TOKENS ===== */
 :root {
     /* Color Palette */
-    --color-primary: #2563eb;
-    --color-primary-dark: #1d4ed8;
-    --color-primary-light: #3b82f6;
+    --color-primary: #1B7F4A;
+    --color-primary-dark: #155A38;
+    --color-primary-light: #2BA55F;
     
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-danger: #ef4444;
+    --color-success: #1B7F4A;
+    --color-warning: #FFC933;
+    --color-danger: #E74C3C;
     
     --color-neutral-50: #f9fafb;
     --color-neutral-100: #f3f4f6;
@@ -196,7 +196,7 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(27, 127, 74, 0.1);
 }
 
 textarea {
@@ -257,7 +257,7 @@ form > button[type="submit"]:active {
 }
 
 .btn-delete:hover {
-    background-color: rgba(239, 68, 68, 0.05);
+    background-color: rgba(231, 76, 60, 0.05);
     border-color: var(--color-danger);
 }
 
@@ -333,17 +333,17 @@ ul#task-list {
 }
 
 .badge-priority.priority-high {
-    background-color: rgba(239, 68, 68, 0.15);
+    background-color: rgba(231, 76, 60, 0.15);
     color: var(--color-danger);
 }
 
 .badge-priority.priority-medium {
-    background-color: rgba(245, 158, 11, 0.15);
-    color: var(--color-warning);
+    background-color: rgba(255, 201, 51, 0.15);
+    color: #FFC933;
 }
 
 .badge-priority.priority-low {
-    background-color: rgba(16, 185, 129, 0.15);
+    background-color: rgba(27, 127, 74, 0.15);
     color: var(--color-success);
 }
 
@@ -353,17 +353,17 @@ ul#task-list {
 }
 
 .badge-status.status-pending {
-    background-color: rgba(59, 130, 246, 0.15);
+    background-color: rgba(27, 127, 74, 0.15);
     color: var(--color-primary);
 }
 
 .badge-status.status-in-progress {
-    background-color: rgba(245, 158, 11, 0.15);
-    color: var(--color-warning);
+    background-color: rgba(255, 201, 51, 0.15);
+    color: #FFC933;
 }
 
 .badge-status.status-done {
-    background-color: rgba(16, 185, 129, 0.15);
+    background-color: rgba(27, 127, 74, 0.15);
     color: var(--color-success);
 }
 
