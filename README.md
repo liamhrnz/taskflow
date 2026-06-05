@@ -33,15 +33,15 @@ taskflow/
 │   └── app.js              ← DOM manipulation & API calls (Act 1 + Act 2)
 ├── db.json                 ← JSON Server mock database
 ├── package.json            ← Node.js dependencies
-├── server.js               ← Express.js backend
+├── start-server.cmd        ← Batch script to start JSON Server
 └── README.md               ← This file
 ```
 
 ## Setup Instructions
 
 ### Prerequisites
-- Node.js v18+ ([Download](https://nodejs.org))
-- npm v8+ (included with Node.js)
+- Node.js v24+ (installed at `C:\Program Files\nodejs`)
+- npm (included with Node.js)
 
 ### Quick Start
 
@@ -50,20 +50,36 @@ taskflow/
    npm install
    ```
 
-2. **Start the server:**
+2. **Start the JSON Server (API backend):**
    ```bash
-   npm start
+   npm run server
    ```
    The API will be available at: **http://localhost:3000**
 
-3. **Open in browser:**
-   - Visit: `http://localhost:3000`
+3. **Open the app in your browser:**
+   - File path: `taskflow/index.html`
+   - Or use a local server: `python -m http.server 8000`
 
 ## REST API Endpoints
+
+JSON Server provides a full REST API for the `/tasks` resource:
 
 ### Get all tasks
 ```http
 GET /tasks
+```
+**Response (200):**
+```json
+[
+  {
+    "id": 1,
+    "title": "Set up project structure",
+    "description": "Create folders for css, js, and assets",
+    "priority": "high",
+    "status": "done",
+    "dueDate": "2026-06-01"
+  }
+]
 ```
 
 ### Get a single task
@@ -78,12 +94,13 @@ Content-Type: application/json
 
 {
   "title": "Learn REST APIs",
-  "description": "Understand HTTP methods",
+  "description": "Understand HTTP methods and status codes",
   "priority": "medium",
   "status": "pending",
   "dueDate": "2026-06-10"
 }
 ```
+**Response (201):** Returns the created task with auto-generated `id`.
 
 ### Update a task
 ```http
@@ -91,52 +108,59 @@ PUT /tasks/:id
 Content-Type: application/json
 
 {
-  "title": "Updated title",
-  "status": "in-progress"
+  "title": "Learn REST APIs",
+  "status": "in-progress",
+  "priority": "high",
+  "description": "Understand HTTP methods and status codes",
+  "dueDate": "2026-06-10"
 }
 ```
+**Response (200):** Returns the updated task.
 
 ### Delete a task
 ```http
 DELETE /tasks/:id
 ```
+**Response (200/204):** No content or empty response.
 
-## Features
+## Features & Deliverables
 
 ### ✅ Quiz 1: HTML Structure
-- Valid HTML5 with semantic landmarks
-- Accessible form with required fields
-- W3C compliant
+- Valid HTML5 with semantic landmarks (`<header>`, `<main>`, `<section>`, `<footer>`)
+- Accessible form with all required fields
+- Passes W3C HTML validator with zero errors
 
 ### ✅ Quiz 2: Responsive CSS
-- Mobile-first design tokens
-- Responsive layout (3 breakpoints)
-- Component styling
+- Mobile-first design tokens and spacing system
+- Responsive layout with breakpoints (640px, 768px, 1024px)
+- Component styling (forms, buttons, badges, cards)
+- Accessibility features (focus states, color contrast, reduced motion support)
 
 ### ✅ Act 1: JavaScript DOM Manipulation
 - Form submission and validation
-- Dynamic task rendering
-- Task operations (add, edit, delete, toggle status)
+- Dynamic task rendering with color-coded badges
+- Task operations: add, edit, delete, toggle status
+- Local state management before API integration
 
-### ✅ Act 2: REST API Integration
-- Full CRUD via fetch() API
-- All 4 HTTP methods (GET, POST, PUT, DELETE)
-- Error handling
+### 🔲 Act 2: REST API Integration (Coming Next)
+- Replace local state with API calls using `fetch()`
+- Implement full CRUD with all four HTTP methods
+- Handle API responses and errors
+- Sync local UI with server-side database
 
-### ✅ Exam: Cloud Deployment
-- Production-ready code
-- GitHub Actions CI/CD
-- Deployment guides for multiple platforms
+### 🔲 Exam: Cloud Deployment
+- Deploy to a live, publicly accessible host
+- Configure backend and database on production server
 
 ## Usage
 
 ### In the Browser
 1. **Add a task:** Fill the form and click "Add Task"
-2. **Edit a task:** Click "Edit", modify, and click "Update Task"
-3. **Toggle status:** Click status button to cycle through states
+2. **Complete a task:** Click the status button to cycle through states
+3. **Edit a task:** Click "Edit" to load task into form, modify, and click "Update Task"
 4. **Delete a task:** Click "Delete" and confirm
 
-### Via API (cURL)
+### Via API (cURL or Postman)
 ```bash
 # Add a task
 curl -X POST http://localhost:3000/tasks \
@@ -149,7 +173,7 @@ curl http://localhost:3000/tasks
 # Update a task
 curl -X PUT http://localhost:3000/tasks/1 \
   -H "Content-Type: application/json" \
-  -d '{"status": "done"}'
+  -d '{"title": "Buy groceries", "status": "done"}'
 
 # Delete a task
 curl -X DELETE http://localhost:3000/tasks/1
@@ -158,30 +182,16 @@ curl -X DELETE http://localhost:3000/tasks/1
 ## Technologies
 
 - **HTML5** — Semantic structure and accessibility
-- **CSS3** — Design tokens, responsive layout
-- **Vanilla JavaScript** — DOM manipulation, event handling
-- **Express.js** — REST API backend
-- **JSON** — Data persistence
-- **Fetch API** — HTTP client
+- **CSS3** — Design tokens, responsive layout, component styling
+- **Vanilla JavaScript** — DOM manipulation, form handling, state management
+- **JSON Server** — Mock REST API (zero-code backend)
+- **Fetch API** — HTTP client for Act 2 API integration
 
-## Documentation
+## Author
 
-- **QUICK_START.md** — 5-minute setup guide
-- **DEPLOYMENT.md** — Deploy to Vercel, Heroku, Railway, Netlify
-- **EXPRESS_SERVER_GUIDE.md** — Backend API documentation
-- **PRODUCTION_DEPLOYMENT.md** — Production deployment steps
-- **REPLIT_DEPLOYMENT.md** — Deploy to Replit (easiest option)
-- **TEST_REPORT.md** — End-to-end test results
-
-## Deployment
-
-**Easiest option:** [Deploy to Replit](REPLIT_DEPLOYMENT.md) in 3 minutes!
-
-Other options:
-- **Vercel** — 5 minutes, free
-- **Heroku** — 15 minutes, free tier
-- **Railway** — 10 minutes, free credits
-- **Netlify** — 5 minutes, free
+Your Name  
+Section: [Your Section]  
+Date: June 2026
 
 ## License
 

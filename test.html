@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>TaskFlow Test</title></head>
+<body>
+<h1>TaskFlow - Loading Test</h1>
+<div id="result">Testing...</div>
+<script>
+  window.API_BASE_URL = 'http://localhost:3000';
+  fetch(window.API_BASE_URL + '/tasks')
+    .then(r => r.json())
+    .then(tasks => {
+      document.getElementById('result').innerHTML = '<p style="color: green;">✅ API Connected! ' + tasks.length + ' tasks found.</p>';
+    })
+    .catch(e => {
+      document.getElementById('result').innerHTML = '<p style="color: red;">❌ Error: ' + e.message + '</p>';
+    });
+</script>
+</body>
+</html>
